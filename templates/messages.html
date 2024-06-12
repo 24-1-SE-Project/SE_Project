@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script>
+  window.onload = function() {
+    document.getElementById("recipient_id").focus();
+  };
+</script>
+
+<div class="sidebar">
+  <h2>User List</h2>
+  <hr>
+  {% for user in users %}
+    <a href="{{ url_for('messages', recipient_id=user[0]) }}">{{ user[1] }}</a><br><br>
+  {% endfor %}
+</div>
+
+<div class="content">
+  <div class="chatbox">
+    {% for message in messages %}
+      <div class="message-box {% if message[1] == session['user_id'] %}sent-box{% else %}received-box{% endif %}">
+        {% if message[1] == session['user_id'] %}
+        <div class="delete-form">
+          <form action="{{ url_for('delete_message', message_id=message[0]) }}" method="post">
+            <button type="submit" class="delete-button">삭제</button>
+          </form>
+        </div>
+        {% endif %}
+        <div class="message {% if message[1] == session['user_id'] %}sent{% else %}received{% endif %}">
+          <p><strong>{{ message[1] | get_username }}</strong></p>
+          <p>{{ message[3] }}</p>
+        </div>
+        {% if message[1] != session['user_id'] %}
+        <div class="reply-form">
+          <form action="{{ url_for('messages') }}" method="get">
+            <input type="hidden" name="recipient_id" value="{{ message[1] }}">
+            <button type="submit" class="reply-button">답장</button>
+          </form>
+        </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  <form method="POST" class="message-form">
+    <div class="form-group">
+      <label for="recipient_id">Send to</label>
+      <input type="text" id="recipient_id" name="recipient_id" value="{{ recipient_id }}" required>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    <div class="sendbtn">
+      <button type="submit">Send</button>
+    </div>
+  </form>
+</div>
+
+<style>
+  .sidebar {
+    float: left;
+    width: 20%;
+    text-align: center;
+    background-color: #F6EAC2;
+    height: 100%;
+  }
+
+  .content {
+    margin-left: 20%;
+    height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chatbox {
+    border-radius: 30px;
+    background-color: #9bbbd4;
+    padding: 10px;
+    height: 70%;
+    overflow-y: scroll;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .form-group label {
+    width: 20%;
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  .form-group input[type="text"],
+  .form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 1em;
+  }
+
+  .form-group textarea {
+    resize: none;
+  }
+
+  .message-form {
+    margin-top: 20px;
+  }
+
+  .message-box {
+    display: flex;
+    margin: 5px 0;
+    align-items: flex-end;
+  }
+
+  .sent-box {
+    justify-content: flex-end;
+  }
+
+  .received-box {
+    justify-content: flex-start;
+  }
+
+  .message {
+    padding: 5px 10px;
+    border-radius: 20px;
+    width: 40%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sent {
+    background-color: #fef01b;
+    text-align: right;
+    margin-left: 10px;
+  }
+
+  .received {
+    background-color: #ffffff;
+    text-align: left;
+  }
+
+  .delete-form {
+    margin-right: 10px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .delete-button {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 0.8em;
+  }
+
+  .reply-form {
+    margin-left: 10px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .reply-button {
+    background: none;
+    border: none;
+    color: greenyellow;
+    cursor: pointer;
+    font-size: 0.8em;
+  }
+
+  .message p {
+    margin: 2px 0;
+  }
+</style>
+{% endblock %}

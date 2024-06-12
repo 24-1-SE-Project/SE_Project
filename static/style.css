@@ -1,0 +1,249 @@
+/* static/style.css */
+
+/* SUIT 폰트를 사용하기 위한 @font-face 설정 */
+@font-face {
+  font-family: 'SUIT';
+  src: url('/static/SUIT-Medium.otf');
+}
+
+body {
+  font-family:'SUIT';
+  background-image: url('/static/pic/background2.jpg');
+  background-size: 20vw;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+header nav ul li {
+  display: inline;
+  margin-right: 1rem;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  padding: 1rem;
+}
+
+form {
+  margin-bottom: 1rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+form input, form textarea {
+  width: 50%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  margin: 0 auto;
+  display: block;
+}
+
+form button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+}
+
+.sendbtn {
+  text-align: right;
+}
+
+.login-button {
+  margin-top: 1rem; /* 버튼 위쪽 여백 추가 */
+  width: 30%;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+}
+
+.logout {
+  color: #D1180B;
+}
+
+.login-form {
+  text-align: center; /* 로그인 폼 전체를 가운데 정렬 */
+}
+
+.register-form {
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  flex-basis: 10%; /* 라벨 영역 너비 설정 */
+  text-align: center; /* 라벨을 오른쪽으로 정렬 */
+  padding-right: 1rem; /* 라벨과 입력 필드 사이 간격 설정 */
+}
+
+.form-group input {
+  flex-grow: 1; /* 입력 필드가 남은 공간을 모두 채우도록 설정 */
+}
+
+
+.sidebar {
+  float: left;
+  width: 20%; /* 사용자 목록 사이드바의 너비 조정 가능 */
+  text-align: center;
+  background-color: #F6EAC2;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.content_login {
+  margin-left: 20%;
+  align-content: center;
+}
+
+.content {
+  margin-left: 20%; /* 사용자 목록 사이드바의 너비만큼 content를 이동 */
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.users {
+  list-style-type: none;
+  padding: 5%;
+}
+
+.uploader {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.photos {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* 가로 간격을 균등하게 설정 */
+}
+
+.photos_profile {
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* 가로 간격을 균등하게 설정 */
+}
+
+.photo-description {
+  width: 45%; /* 각 사진 설명 요소의 너비를 조정하여 두 개씩 표시되도록 함 */
+  margin-bottom: 2rem; /* 각 사진 설명 요소 사이의 간격 조정 */
+}
+
+.photo-description_profile {
+  width: 45%; /* 각 사진 설명 요소의 너비를 조정하여 두 개씩 표시되도록 함 */
+  margin-bottom: 2rem; /* 각 사진 설명 요소 사이의 간격 조정 */
+}
+
+.photo {
+  border: 3px solid #333; /* 사진 테두리 설정 */
+  border-radius: 10px; /* 사진 테두리 모서리를 둥글게 설정 */
+  background-color: #f4f4f4;
+  padding: 10px; /* 사진과 테두리 사이의 간격 설정 */
+  width: 100%; /* 가로 길이를 고정 */
+  height: 40vh; /* 세로 길이를 고정 */
+  object-fit: contain; /* 사진이 비율을 유지하면서 요소에 맞춰짐 */
+}
+
+h2 {
+  text-align: center;
+} 
+
+h1 {
+  text-align: center;
+  font-weight: bolder;
+}
+
+
+/* static/style.css */
+
+/* 기존 CSS 스타일 유지 */
+
+.photo-description_profile {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center; /* 내부 요소를 가운데 정렬 */
+}
+
+.edit-button,
+.delete-button,
+.reply-button,
+.message-button,
+.search-button {
+  margin: 0 0.5rem; /* 버튼 간격 조절 */
+  padding: 0.5rem 1rem;
+  background-color: #FFA500;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button {
+  width: 30vw;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+.delete-button {
+    background-color: #dc3545; /* 삭제 버튼 색상 변경 */
+}
+.delete-button:hover {
+    color: white;
+    background-color: #F05650; /* 삭제 버튼에 마우스를 올렸을 때 색상 변경 */
+}
+
+.reply-button:hover {
+  color: white;
+  background-color: #c2e88e; /* 삭제 버튼에 마우스를 올렸을 때 색상 변경 */
+}
+
+.search-button:hover {
+    background-color: #FFD000; /* 버튼에 마우스를 올렸을 때 색상 변경 */
+}
+
+.edit-button:hover {
+    background-color: #FFD000; /* 버튼에 마우스를 올렸을 때 색상 변경 */
+
+}
+
+.edit-button:active,
+.delete-button:active,
+.reply-button:active,
+.message-button:active {
+    transform: translateY(1px); /* 버튼을 아래로 약간 이동하여 클릭 효과 표시 */
+}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Please Enter Keyword</h2>
+<form method="POST">
+
+  <div class="form-group">
+    <label for="keyword">Keyword:</label>
+    <input type="text" id="keyword" name="keyword" required>
+  </div>
+
+    <button type="submit" class="search-button">Search</button>
+</form>
+<div class="photos_profile">
+    {% if photos %}
+        {% for photo in photos %}
+            <div class="photo-description">
+                <div class="description">
+                  <img src="{{ url_for('uploaded_file', filename=photo[4]) }}" alt="{{ photo[2] }}" class="photo">
+                  <p>Description: {{ photo[2] }}</p>
+                  <p>Keyword: {{ photo[3] }}</p>
+                </div>
+                <a href="{{ url_for('messages', photo_id=photo[0], recipient_id='') }}" class="search-button">Send Message</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

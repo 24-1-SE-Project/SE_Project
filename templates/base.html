@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Photo Diary</title>
+</head>
+<body>
+    <header>
+        <h1>Photo Diary</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">HOME</a></li>
+                {% if session.get('user_id') %}
+                    <li><a href="{{ url_for('profile') }}">PROFILE</a></li>
+                    <li><a href="{{ url_for('upload') }}">UPLOAD</a></li>
+                    <li><a href="{{ url_for('search') }}">SEARCH</a></li>
+                    <li><a href="{{ url_for('messages') }}">MESSAGE</a></li>
+                    <li><a href="{{ url_for('logout') }}", class="logout">LOGOUT</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('register') }}">REGISTER</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
