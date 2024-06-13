@@ -18,8 +18,6 @@
                     <li><a href="{{ url_for('search') }}" class="{{ 'active' if request.endpoint == 'search' else '' }}">SEARCH</a></li>
                     <li><a href="{{ url_for('messages') }}" class="{{ 'active' if request.endpoint == 'messages' else '' }}">MESSAGE</a></li>
                     <li><a href="{{ url_for('logout') }}" class="logout">LOGOUT</a></li>
-                {% else %}
-                    <li><a href="{{ url_for('register') }}" class="{{ 'active' if request.endpoint == 'register' else '' }}">REGISTER</a></li>
                 {% endif %}
             </ul>
         </nav>

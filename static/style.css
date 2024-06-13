@@ -224,17 +224,20 @@ h1 {
   cursor: pointer;
   width: 20vw;
   margin: 0 auto;
+  display: block;
+  text-align: center;
+  text-decoration: none;
 }
 
 .register-button {
   padding: 0.5rem 1rem;
-  background-color: #FFA500;
-  color: white;
-  border: none;
-  border-radius: 5px;
+  color: black;
   cursor: pointer;
-  width: 20vw;
   margin: 0 auto;
+  display: block;
+  text-align: center;
+  text-decoration: underline;
+  width: 10vw;
 }
 
 .delete-button {
@@ -251,10 +254,14 @@ h1 {
   background-color: #c2e88e; /* 삭제 버튼에 마우스를 올렸을 때 색상 변경 */
 }
 
-.search-button,
-.login-button,
+.search-button:hover,
+.login-button:hover,
 .edit-button:hover {
     background-color: #FFD000; /* 버튼에 마우스를 올렸을 때 색상 변경 */
+}
+
+.register-button:hover {
+    color: #FFA500; /* 버튼에 마우스를 올렸을 때 색상 변경 */
 }
 
 .edit-button,

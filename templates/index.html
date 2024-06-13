@@ -52,9 +52,10 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit" class="login-button">Login</button> <br>
+                <button type="submit" class="login-button">Login</button>
+            <br>
+            <a href="{{ url_for('register') }}" class="register-button">Sign Up</a>
         </form>
-        <a href="{{ url_for('register') }}" class="register-button">Register</button>
     </div>
 {% endif %}
 {% endblock %}
