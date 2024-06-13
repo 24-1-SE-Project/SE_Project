@@ -8,18 +8,18 @@
 </head>
 <body>
     <header>
-        <h1>Photo Diary</h1>
+      <img src="{{ url_for('static', filename='pic/logo.png') }}" alt="logo" class="logo" width="20%">
         <nav>
             <ul>
-                <li><a href="{{ url_for('index') }}">HOME</a></li>
                 {% if session.get('user_id') %}
-                    <li><a href="{{ url_for('profile') }}">PROFILE</a></li>
-                    <li><a href="{{ url_for('upload') }}">UPLOAD</a></li>
-                    <li><a href="{{ url_for('search') }}">SEARCH</a></li>
-                    <li><a href="{{ url_for('messages') }}">MESSAGE</a></li>
-                    <li><a href="{{ url_for('logout') }}", class="logout">LOGOUT</a></li>
+                    <li><a href="{{ url_for('index') }}" class="{{ 'active' if request.endpoint == 'index' else '' }}">HOME</a></li>
+                    <li><a href="{{ url_for('profile') }}" class="{{ 'active' if request.endpoint == 'profile' else '' }}">PROFILE</a></li>
+                    <li><a href="{{ url_for('upload') }}" class="{{ 'active' if request.endpoint == 'upload' else '' }}">UPLOAD</a></li>
+                    <li><a href="{{ url_for('search') }}" class="{{ 'active' if request.endpoint == 'search' else '' }}">SEARCH</a></li>
+                    <li><a href="{{ url_for('messages') }}" class="{{ 'active' if request.endpoint == 'messages' else '' }}">MESSAGE</a></li>
+                    <li><a href="{{ url_for('logout') }}" class="logout">LOGOUT</a></li>
                 {% else %}
-                    <li><a href="{{ url_for('register') }}">REGISTER</a></li>
+                    <li><a href="{{ url_for('register') }}" class="{{ 'active' if request.endpoint == 'register' else '' }}">REGISTER</a></li>
                 {% endif %}
             </ul>
         </nav>

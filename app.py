@@ -126,9 +126,11 @@ def delete_photo(photo_id):
 def search():
     if request.method == 'POST':
         keyword = request.form['keyword']
-        photos = query_db('SELECT * FROM photos WHERE keyword LIKE ?', [keyword])
+        # keyword 양쪽에 % 와일드카드 추가
+        photos = query_db('SELECT * FROM photos WHERE keyword LIKE ?', ['%' + keyword + '%'])
         return render_template('search.html', photos=photos)
     return render_template('search.html')
+
 
 @app.route('/messages', methods=['GET', 'POST'])
 def messages():

@@ -8,7 +8,7 @@
 
 body {
   font-family:'SUIT';
-  background-image: url('/static/pic/background2.jpg');
+  background-image: url('/static/pic/background.jpg');
   background-size: 20vw;
   margin: 0;
   padding: 0;
@@ -34,6 +34,11 @@ header nav ul li {
 header nav ul li a {
   color: white;
   text-decoration: none;
+}
+
+nav ul li a.active {
+  color: #FFD000; /* 원하는 색상으로 변경 */
+  font-weight: bold; /* 원하는 스타일 추가 */
 }
 
 main {
@@ -66,15 +71,6 @@ form button {
 
 .sendbtn {
   text-align: right;
-}
-
-.login-button {
-  margin-top: 1rem; /* 버튼 위쪽 여백 추가 */
-  width: 30%;
-  padding: 0.5rem 1rem;
-  background-color: #333;
-  color: white;
-  border: none;
 }
 
 .logout {
@@ -219,9 +215,32 @@ h1 {
   text-align: center;
 }
 
+.login-button {
+  padding: 0.5rem 1rem;
+  background-color: #FFA500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 20vw;
+  margin: 0 auto;
+}
+
+.register-button {
+  padding: 0.5rem 1rem;
+  background-color: #FFA500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 20vw;
+  margin: 0 auto;
+}
+
 .delete-button {
     background-color: #dc3545; /* 삭제 버튼 색상 변경 */
 }
+
 .delete-button:hover {
     color: white;
     background-color: #F05650; /* 삭제 버튼에 마우스를 올렸을 때 색상 변경 */
@@ -232,18 +251,17 @@ h1 {
   background-color: #c2e88e; /* 삭제 버튼에 마우스를 올렸을 때 색상 변경 */
 }
 
-.search-button:hover {
-    background-color: #FFD000; /* 버튼에 마우스를 올렸을 때 색상 변경 */
-}
-
+.search-button,
+.login-button,
 .edit-button:hover {
     background-color: #FFD000; /* 버튼에 마우스를 올렸을 때 색상 변경 */
-
 }
 
-.edit-button:active,
-.delete-button:active,
-.reply-button:active,
-.message-button:active {
+.edit-button,
+.delete-button,
+.reply-button,
+.login-button,
+.message-button,
+.register-button:active {
     transform: translateY(1px); /* 버튼을 아래로 약간 이동하여 클릭 효과 표시 */
 }
